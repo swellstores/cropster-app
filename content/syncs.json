@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.swell.store/content.json",
+  "collection": "syncs",
+  "description": "Sidebar entry that opens the app frontend to send existing products and orders to Cropster",
+  "fields": [],
+  "label": "Cropster sync",
+  "views": [
+    {
+      "id": "list",
+      "nav": {
+        "label": "Cropster sync",
+        "link": "frontend:///"
+      },
+      "fields": [],
+      "tabs": []
+    }
+  ]
+}

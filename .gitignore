@@ -1,0 +1,8 @@
+node_modules
+.wrangler
+.dev.vars
+.dev.vars.*
+.DS_Store
+.env
+dist
+test/tsconfig.tsbuildinfo

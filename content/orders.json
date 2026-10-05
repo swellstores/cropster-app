@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json.swell.store/content.json",
+  "collection": "orders",
+  "description": "Cropster production order status on orders",
+  "fields": [
+    {
+      "id": "cropster_state",
+      "label": "Cropster state",
+      "type": "select",
+      "readonly": true,
+      "options": [
+        {
+          "value": "OPEN",
+          "label": "Open"
+        },
+        {
+          "value": "SCHEDULED",
+          "label": "Scheduled"
+        },
+        {
+          "value": "IN_PROGRESS",
+          "label": "In progress"
+        },
+        {
+          "value": "ROASTED",
+          "label": "Roasted"
+        },
+        {
+          "value": "COMPLETED",
+          "label": "Completed"
+        }
+      ]
+    },
+    {
+      "id": "cropster_status",
+      "label": "Fulfillment status",
+      "type": "short_text",
+      "readonly": true
+    },
+    {
+      "id": "cropster_id",
+      "label": "Cropster order ID",
+      "type": "short_text",
+      "readonly": true
+    },
+    {
+      "id": "cropster_modified_at",
+      "label": "Changed in Cropster",
+      "type": "datetime",
+      "readonly": true
+    },
+    {
+      "id": "cropster_synced_at",
+      "label": "Last sent",
+      "type": "datetime",
+      "readonly": true
+    },
+    {
+      "id": "cropster_error",
+      "label": "Error",
+      "type": "long_text",
+      "readonly": true
+    }
+  ],
+  "views": [
+    {
+      "id": "list",
+      "fields": [
+        {
+          "id": "cropster_state",
+          "label": "Cropster"
+        }
+      ],
+      "bulk_actions": [
+        {
+          "id": "send_to_cropster",
+          "label": "Send to Cropster",
+          "function": "send-to-cropster",
+          "loading_label": "Sending to Cropster…",
+          "hint": "Send up to 50 selected orders to Cropster now"
+        }
+      ]
+    },
+    {
+      "id": "edit",
+      "extra_actions": [
+        {
+          "id": "send_to_cropster",
+          "label": "Send to Cropster",
+          "function": "send-to-cropster",
+          "loading_label": "Sending to Cropster…"
+        }
+      ],
+      "tabs": [
+        {
+          "id": "cropster",
+          "label": "Cropster",
+          "fields": [
+            {
+              "type": "field_row",
+              "fields": [
+                {
+                  "id": "cropster_state",
+                  "admin_span": 2
+                },
+                {
+                  "id": "cropster_status",
+                  "admin_span": 2
+                }
+              ]
+            },
+            {
+              "id": "cropster_id"
+            },
+            {
+              "type": "field_row",
+              "fields": [
+                {
+                  "id": "cropster_modified_at",
+                  "admin_span": 2
+                },
+                {
+                  "id": "cropster_synced_at",
+                  "admin_span": 2
+                }
+              ]
+            },
+            {
+              "id": "cropster_error",
+              "conditions": {
+                "cropster_error": {
+                  "$exists": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

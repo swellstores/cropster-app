@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json.swell.store/content.json",
+  "collection": "products",
+  "description": "Cropster options and sync status on products",
+  "fields": [
+    {
+      "id": "cropster_enabled",
+      "label": "Send to Cropster",
+      "type": "boolean",
+      "ui": "toggle",
+      "description": "Send this product to Cropster. Used when Products to send is set to marked products in the app settings."
+    },
+    {
+      "id": "cropster_package_size",
+      "label": "Package size",
+      "type": "short_text",
+      "placeholder": "250g",
+      "description": "Used for variants without a package size option, e.g. 250g, 12 oz, 1 kg or 2 lb"
+    },
+    {
+      "id": "cropster_id",
+      "label": "Cropster product ID",
+      "type": "short_text",
+      "readonly": true
+    },
+    {
+      "id": "cropster_review_state",
+      "label": "Review state",
+      "type": "short_text",
+      "readonly": true,
+      "description": "UNREVIEWED products must be reviewed in Cropster before they can be produced"
+    },
+    {
+      "id": "cropster_synced_at",
+      "label": "Last sent",
+      "type": "datetime",
+      "readonly": true
+    },
+    {
+      "id": "cropster_error",
+      "label": "Error",
+      "type": "long_text",
+      "readonly": true
+    }
+  ],
+  "views": [
+    {
+      "id": "list",
+      "bulk_actions": [
+        {
+          "id": "send_to_cropster",
+          "label": "Send to Cropster",
+          "function": "send-to-cropster",
+          "loading_label": "Sending to Cropster…",
+          "hint": "Send up to 50 selected products to Cropster now"
+        }
+      ]
+    },
+    {
+      "id": "edit",
+      "extra_actions": [
+        {
+          "id": "send_to_cropster",
+          "label": "Send to Cropster",
+          "function": "send-to-cropster",
+          "loading_label": "Sending to Cropster…"
+        }
+      ],
+      "tabs": [
+        {
+          "id": "cropster",
+          "label": "Cropster",
+          "fields": [
+            {
+              "id": "cropster_enabled",
+              "conditions": {
+                "$settings.cropster.products": "marked"
+              }
+            },
+            {
+              "id": "cropster_package_size"
+            },
+            {
+              "type": "field_row",
+              "fields": [
+                {
+                  "id": "cropster_id",
+                  "admin_span": 2
+                },
+                {
+                  "id": "cropster_review_state",
+                  "admin_span": 2
+                }
+              ]
+            },
+            {
+              "id": "cropster_synced_at"
+            },
+            {
+              "id": "cropster_error",
+              "conditions": {
+                "cropster_error": {
+                  "$exists": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

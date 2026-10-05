@@ -1,0 +1,41 @@
+{
+  "description": "Coffee products and orders to Cropster for roast planning",
+  "id": "cropster",
+  "name": "Cropster",
+  "type": "integration",
+  "version": "1.0.0",
+  "permissions": [],
+  "support_email": "support@swell.is",
+  "integrations": [
+    "cropster"
+  ],
+  "images": [
+    {
+      "id": "initial-sync",
+      "title": "Your catalog and orders, in Cropster",
+      "description": "Send existing products and orders from Cropster sync in your sidebar, follow the progress and see what was skipped and why.",
+      "image_src": "assets/images/1-initial-sync.png"
+    },
+    {
+      "id": "products",
+      "title": "Coffee products, ready to roast",
+      "description": "Variants go to Cropster with their SKU, package size and grind, read from your product options.",
+      "image_src": "assets/images/2-products.png"
+    },
+    {
+      "id": "production-status",
+      "title": "Production status on every order",
+      "description": "Paid orders become Cropster production orders, and their state is copied back to Swell every 15 minutes.",
+      "image_src": "assets/images/3-production-status.png"
+    },
+    {
+      "id": "setup",
+      "title": "Connected in a few minutes",
+      "description": "Add your Cropster service account Client ID and Secret, then turn on Enable Integration.",
+      "image_src": "assets/images/4-setup.png"
+    }
+  ],
+  "frontend": {
+    "hosting": "managed"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.swell.store/model.json",
+  "collection": "orders",
+  "description": "Cropster production order status stored on orders",
+  "fields": {
+    "cropster_id": {
+      "type": "string",
+      "description": "Cropster production order ID"
+    },
+    "cropster_state": {
+      "type": "string",
+      "description": "Cropster order state: OPEN, SCHEDULED, IN_PROGRESS, ROASTED or COMPLETED"
+    },
+    "cropster_status": {
+      "type": "string",
+      "description": "Detailed Cropster fulfillment status: RECEIVED, SCHEDULED, IN_PROGRESS, ROASTED or PACKAGED"
+    },
+    "cropster_modified_at": {
+      "type": "date",
+      "description": "Last change of the order in Cropster"
+    },
+    "cropster_synced_at": {
+      "type": "date",
+      "description": "Last time the order was sent to Cropster"
+    },
+    "cropster_error": {
+      "type": "string",
+      "description": "Why the last send failed"
+    }
+  }
+}

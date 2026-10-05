@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json.swell.store/setting.json",
+  "label": "Cropster",
+  "description": "Send coffee products and orders to Cropster for roast production planning, and see each order's production state in Swell",
+  "actions": [
+    {
+      "id": "test_connection",
+      "label": "Test connection",
+      "function": "test-connection",
+      "loading_label": "Testing connection…",
+      "hint": "Checks the Client ID and Client Secret with Cropster"
+    }
+  ],
+  "fields": [
+    {
+      "id": "client_id",
+      "label": "Client ID",
+      "type": "short_text",
+      "description": "From a service account in Cropster → Settings → Service Accounts with the mrp.product and mrp.order scopes",
+      "required": true
+    },
+    {
+      "id": "client_secret",
+      "label": "Client Secret",
+      "type": "short_text",
+      "description": "Shown once when the service account is created",
+      "required": true
+    },
+    {
+      "id": "enabled",
+      "label": "Enable Integration",
+      "type": "boolean",
+      "ui": "toggle",
+      "description": "Send product and order changes to Cropster as they happen, and update order production states every 15 minutes",
+      "default": false
+    },
+    {
+      "type": "field_group",
+      "label": "Products",
+      "fields": [
+        {
+          "id": "products",
+          "label": "Products to send",
+          "type": "select",
+          "default": "all",
+          "options": [
+            {
+              "value": "all",
+              "label": "All products with a SKU and package size"
+            },
+            {
+              "value": "marked",
+              "label": "Only products with Send to Cropster turned on"
+            }
+          ]
+        },
+        {
+          "id": "size_option",
+          "label": "Package size option",
+          "type": "short_text",
+          "description": "Product option names that hold the package size, separated by commas. Values like 250g, 12 oz, 1 kg or 2 lb are recognized.",
+          "default": "Size, Weight"
+        },
+        {
+          "id": "grind_option",
+          "label": "Grind option",
+          "type": "short_text",
+          "description": "Product option names that hold the grind style, separated by commas",
+          "default": "Grind"
+        },
+        {
+          "id": "default_grind",
+          "label": "Default grind style",
+          "type": "short_text",
+          "description": "Used for variants without a grind option",
+          "default": "Whole Bean"
+        }
+      ]
+    },
+    {
+      "type": "field_group",
+      "label": "Orders",
+      "fields": [
+        {
+          "id": "send_orders_on",
+          "label": "Send orders when",
+          "type": "select",
+          "default": "paid",
+          "options": [
+            {
+              "value": "paid",
+              "label": "Order is paid"
+            },
+            {
+              "value": "submitted",
+              "label": "Order is submitted"
+            }
+          ]
+        },
+        {
+          "id": "customer_type",
+          "label": "Customer type",
+          "type": "select",
+          "default": "RETAIL",
+          "options": [
+            {
+              "value": "RETAIL",
+              "label": "Retail"
+            },
+            {
+              "value": "WHOLESALE",
+              "label": "Wholesale"
+            }
+          ]
+        },
+        {
+          "id": "wholesale_group",
+          "label": "Wholesale customer group",
+          "type": "short_text",
+          "description": "Optional. Orders from customers in this group ID are sent as wholesale"
+        }
+      ]
+    }
+  ]
+}

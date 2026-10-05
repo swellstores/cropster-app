@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.swell.store/model.json",
+  "collection": "products",
+  "description": "Cropster sync options and status stored on products",
+  "fields": {
+    "cropster_enabled": {
+      "type": "bool",
+      "description": "Send this product to Cropster when Products to send is set to marked products"
+    },
+    "cropster_package_size": {
+      "type": "string",
+      "description": "Package size used when no variant option holds one, e.g. 250g or 12 oz"
+    },
+    "cropster_id": {
+      "type": "string",
+      "description": "Cropster product ID"
+    },
+    "cropster_review_state": {
+      "type": "string",
+      "description": "REVIEWED or UNREVIEWED; unreviewed products must be reviewed in Cropster before production"
+    },
+    "cropster_synced_at": {
+      "type": "date",
+      "description": "Last time the product was sent to Cropster"
+    },
+    "cropster_error": {
+      "type": "string",
+      "description": "Why the last sync failed or the product was not sent"
+    }
+  }
+}
