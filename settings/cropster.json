@@ -22,7 +22,7 @@
     {
       "id": "client_secret",
       "label": "Client Secret",
-      "type": "short_text",
+      "type": "secret",
       "description": "Shown once when the service account is created",
       "required": true
     },

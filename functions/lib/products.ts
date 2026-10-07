@@ -122,7 +122,7 @@ export function buildCropsterProduct(product: any, settings: CropsterSettings): 
   const variants: CropsterVariant[] = [];
   const problems: string[] = [];
   for (const variant of sources) {
-    const sku = (variant ? variant.sku : product.sku)?.trim();
+    const sku = (variant ? (variant.sku || product.sku): product.sku)?.trim();
     const label = variant?.name || product.name;
     if (!sku) {
       problems.push(`${label}: no SKU`);

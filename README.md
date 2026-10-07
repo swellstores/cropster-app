@@ -65,6 +65,9 @@ in the record's **Error** field in its Cropster tab.
 
 - **Cropster tab** on products: Send to Cropster (marked mode only), Package size, Cropster product ID, review state,
   last sent time and error.
+
+  ![Cropster tab on a product](assets/screenshots/04-product-tab.png)
+
 - **Cropster tab** on orders and a **Cropster** column in the order list: state, fulfillment status, Cropster order
   ID, change date, last sent time and error.
 - **Send to Cropster** in the Actions menu of a product or order, and as a bulk action on selected products or orders
@@ -100,7 +103,7 @@ stored in code.
 | Setting           | Type   | Required | Default        | Description                                                                        |
 | ----------------- | ------ | -------- | -------------- | ---------------------------------------------------------------------------------- |
 | `client_id`       | text   | yes      |                | Client ID of a Cropster service account with the `mrp.product` and `mrp.order` scopes. |
-| `client_secret`   | text   | yes      |                | Client Secret of that service account.                                             |
+| `client_secret`   | secret | yes      |                | Client Secret of that service account.                                             |
 | `enabled`         | toggle | no       | off            | Real-time sync, order status updates, the sync page and Send to Cropster.          |
 | `products`        | select | no       | `all`          | Products to send: `all` with a SKU and package size, or only `marked` ones.       |
 | `size_option`     | text   | no       | `Size, Weight` | Product option names holding the package size, comma separated.                   |
