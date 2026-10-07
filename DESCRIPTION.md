@@ -20,4 +20,4 @@ Send coffee products and orders from Swell to Cropster for roast production plan
 
 ## Setup
 
-Create a service account in Cropster → Settings → Service Accounts with the `mrp.product` and `mrp.order` scopes. Enter its Client ID and Client Secret in the app settings, check the product option names, and turn on Enable Integration. Open **Cropster sync** in the sidebar and sync products, then orders.
+In Cropster, open the gear icon → Account → API Access, click **Add service account** and select the `mrp.product` and `mrp.order` scopes (requires the Cropster API Integration add-on). Enter its Client ID and Client Secret in the app settings, check the product option names, and turn on Enable Integration. Open **Cropster sync** in the sidebar and sync products, then orders.

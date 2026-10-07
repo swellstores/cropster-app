@@ -115,9 +115,16 @@ stored in code.
 
 ## Setup
 
-1. In Cropster, open **Settings → Service Accounts** and create a service account with the `mrp.product` and
-   `mrp.order` scopes (requires the Cropster API Integration add-on). Copy the Client ID and Client Secret; the secret
-   is shown only once. Use separate service accounts for the Cropster sandbox and production.
+1. Create a Cropster service account. It requires the Cropster API Integration add-on; to get it, contact
+   [api@cropster.com](mailto:api@cropster.com).
+   1. Log in to Cropster (C-sar), click the **gear icon** at the top right, choose **Account**, then **API Access** in
+      the left menu.
+   2. Click **Add service account**, enter a descriptive name (e.g. `Swell`), and in **Scopes** select `mrp.product`
+      and `mrp.order`.
+   3. Click **Create service account** and copy the Client ID and Client Secret. The secret is shown only once.
+
+   Sandbox and production credentials are separate and don't work in the other environment: create the service
+   account in the Cropster account you want to send data to.
 2. Install the Swell CLI and log in:
 
    ```bash

@@ -16,7 +16,7 @@
       "id": "client_id",
       "label": "Client ID",
       "type": "short_text",
-      "description": "From a service account in Cropster → Settings → Service Accounts with the mrp.product and mrp.order scopes",
+      "description": "From a service account in Cropster → gear icon → Account → API Access, with the mrp.product and mrp.order scopes",
       "required": true
     },
     {
