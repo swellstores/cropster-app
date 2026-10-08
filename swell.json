@@ -1,11 +1,13 @@
 {
-	"description": "Coffee products and orders to Cropster for roast planning",
+	"description": "Coffee products and orders to Cropster for roasting",
 	"id": "cropster",
 	"name": "Cropster",
 	"type": "integration",
 	"version": "1.0.0",
 	"permissions": [],
 	"support_email": "support@swell.is",
+	"documentation_url": "https://developers.swell.is/app-guides/cropster",
+	"price_external": true,
 	"integrations": [
 		"cropster"
 	],
