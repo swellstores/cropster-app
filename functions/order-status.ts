@@ -5,6 +5,10 @@ export const config: SwellConfig = {
   description: 'Copy Cropster production order states to Swell orders',
   cron: {
     schedule: '*/30 * * * *',
+    // Skipped while the app is off or has no client credentials
+    conditions: {
+      $settings: { cropster: { enabled: true, client_id: { $empty: false }, client_secret: { $empty: false } } },
+    },
   },
 };
 
