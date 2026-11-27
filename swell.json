@@ -1,5 +1,6 @@
 {
 	"description": "Coffee products and orders to Cropster for roasting",
+	"repository_url": "https://github.com/swellstores/cropster-app",
 	"id": "cropster",
 	"name": "Cropster",
 	"type": "integration",
