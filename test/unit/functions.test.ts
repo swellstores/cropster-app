@@ -40,7 +40,7 @@ describe("function configs", () => {
       "product.variant.updated",
     ]);
     expect(orderConfig.model?.events).toEqual(["order.submitted", "order.paid", "order.updated"]);
-    expect(statusConfig.cron?.schedule).toBe("*/15 * * * *");
+    expect(statusConfig.cron?.schedule).toBe("*/30 * * * *");
     expect(testConfig.action).toBe(true);
     expect(sendConfig.action).toBe(true);
   });

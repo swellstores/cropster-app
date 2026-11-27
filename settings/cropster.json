@@ -31,7 +31,7 @@
       "label": "Enable Integration",
       "type": "boolean",
       "ui": "toggle",
-      "description": "Send product and order changes to Cropster as they happen, and update order production states every 15 minutes",
+      "description": "Send product and order changes to Cropster as they happen, and update order production states every 30 minutes",
       "default": false
     },
     {

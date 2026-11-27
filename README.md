@@ -18,7 +18,7 @@ twice, after 1 and 2 seconds.
 | `product.variant.created`, `product.variant.updated` | `mrp.product.syncProducts` (parent product) | `functions/product-events.ts` |
 | `order.paid` (or `order.submitted`, see settings) | `mrp.order.setOrders` (create)          | `functions/order-events.ts`   |
 | `order.updated` with changed items              | `mrp.order.setOrders` (update while OPEN) | `functions/order-events.ts`   |
-| Every 15 minutes                                | `mrp.order.listOrders` (changed orders)   | `functions/order-status.ts`   |
+| Every 30 minutes                                | `mrp.order.listOrders` (changed orders)   | `functions/order-status.ts`   |
 
 Events are processed only when **Enable Integration** is on and the Client ID and Client Secret are set. The status
 the app writes on records uses `$events: false`, and status-only product updates are ignored, so syncs never loop.
@@ -52,7 +52,7 @@ The Cropster order ID, state and status are stored on the order and shown on its
 Cropster has started processing (state other than `OPEN`) are not sent again, because Cropster only accepts changes
 while an order is open.
 
-**Order status** – every 15 minutes `order-status` reads Cropster orders changed in the last 2 hours (up to 2,000) and
+**Order status** – every 30 minutes `order-status` reads Cropster orders changed in the last 2 hours (up to 2,000) and
 copies `state` (`OPEN`, `SCHEDULED`, `IN_PROGRESS`, `ROASTED`, `COMPLETED`), `status` and the change date to the Swell
 order with the same number. Orders created in the Cropster UI are ignored.
 
@@ -160,7 +160,7 @@ stored in code.
 - **No cancellations** – the Cropster API has no way to cancel or delete orders. Cancel canceled Swell orders in
   Cropster manually.
 - **Orders are frozen once in production** – changes made in Swell after Cropster scheduled an order are not sent.
-- **Status is polled** – production states reach Swell within about 15 minutes. If the app is disabled for more than
+- **Status is polled** – production states reach Swell within about 30 minutes. If the app is disabled for more than
   2 hours, changes in that gap are picked up only when the order changes again in Cropster.
 - **Keep the sync page open** – the sync runs in the browser page by page; closing the page stops it. Use
   **Resume from page N** to continue.
@@ -175,7 +175,7 @@ stored in code.
 functions/
   product-events.ts   # product and variant changes → mrp.product.syncProducts
   order-events.ts     # order.paid / submitted / updated → mrp.order.setOrders
-  order-status.ts     # cron every 15 min: mrp.order.listOrders → Swell order status
+  order-status.ts     # cron every 30 min: mrp.order.listOrders → Swell order status
   send-to-cropster.ts # dashboard action: send products or orders now
   test-connection.ts  # settings action: check credentials
   lib/

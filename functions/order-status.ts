@@ -4,7 +4,7 @@ import { pollOrderStates } from './lib/orders';
 export const config: SwellConfig = {
   description: 'Copy Cropster production order states to Swell orders',
   cron: {
-    schedule: '*/15 * * * *',
+    schedule: '*/30 * * * *',
   },
 };
 

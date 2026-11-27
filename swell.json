@@ -26,7 +26,7 @@
 		{
 			"id": "production-status",
 			"title": "Production status on every order",
-			"description": "Paid orders become Cropster production orders, and their state is copied back to Swell every 15 minutes.",
+			"description": "Paid orders become Cropster production orders, and their state is copied back to Swell every 30 minutes.",
 			"image_src": "assets/images/3-production-status.png"
 		},
 		{
